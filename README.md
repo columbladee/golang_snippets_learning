@@ -1,6 +1,7 @@
 # golang_snippets_learning
 Examples of fundamental concepts, syntax, functions, features, etc.
 
+golang_builder.sh - used to build go files for several mArchs and os 
 
 ### Examples 1-4
 
