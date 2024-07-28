@@ -23,12 +23,13 @@ var (
 type CustomFormatter struct{}
 
 func (f *CustomFormatter) Format(entry *logrus.Entry) ([]byte, error) {
+	// You might want to change the timezone is you don't live in this area.
 	loc, err := time.LoadLocation("America/Los_Angeles")
 	if err != nil {
 		return nil, fmt.Errorf("error loading location: %v", err)
 	}
 	entry.Time = entry.Time.In(loc)
-
+	// You may wish to change (PST) to your own timezone. I had to play around with this, I kept getting strange output like 7:78PM, but this seems to work.
 	timestamp := entry.Time.Format("2006-01-02 - 3:04PM (PST)")
 
 	level := entry.Level.String()
@@ -73,5 +74,12 @@ func setupLogging(logFile string) *logrus.Logger {
 //usage
 func main() {
 	mainLogger = setupLogging(logFile)
+	//how to use
 	mainLogger.Info("Logger setup complete")
+	mainLogger.Warn("This is a WARN message")
+	mainLogger.Debug("This is a DEBUG message")
+	mainLogger.Error("This is an ERROR message")
+	mainLogger.Fatal("FATALITY message") 
+	mainLogger.Panic("DO NOT REMAIN CALM; PANIC. This is a PANIC message")
+	
 }
