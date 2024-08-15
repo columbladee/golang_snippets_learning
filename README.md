@@ -29,7 +29,7 @@ See noConcurrency.go - Just copying one directory to another. No concurrency. Ba
 
 see exampleChannelsWithGoroutines.go to build off of the noConcurrency.go example.
 
-see imageFetcher.go for a more concrete example.
+see imageFetcher.go subdirectory for a more concrete example.
 
 Goroutines and Channels by themselves are used as examples. Channels with goroutines are used together in safety because (to my understanding):
 
