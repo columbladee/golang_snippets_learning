@@ -25,15 +25,20 @@ Here I try to demonstrate methods of concurrency that (hopefully) should avoid r
  
 See noConcurrency.go - Just copying one directory to another. No concurrency. Baseline.
 
-### TODO Channels with Goroutines
+### Channels with Goroutines
 
-see exampleGoroutine.go , exampleChannel.go , and of naturally , exampleChannelsWithGoroutines.go .
+see exampleChannelsWithGoroutines.go to build off of the noConcurrency.go example.
+
+see imageFetcher.go for a more concrete example.
 
 Goroutines and Channels by themselves are used as examples. Channels with goroutines are used together in safety because (to my understanding):
 
 1) No explicit locking - avoiding the use of mutexes (which can cause deadlocks / race conditions)
 2) Synchronization - Channels sync access to shared data, so only a single goroutine processes data at a time.
 3) Blocking - Send/receive operations to/from a channel blocks a goroutine UNTIL the process can proceed. If done correctly, this should prevent race conditions.
+
+
+
 
 ### TODO Errgroups with Contexts
 
